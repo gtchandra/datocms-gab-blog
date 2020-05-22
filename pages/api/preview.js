@@ -3,12 +3,12 @@ import { getPreviewPostBySlug } from '../../lib/api'
 export default async (req, res) => {
   // Check the secret and next parameters
   // This secret should only be know to this API route and the CMS
-  if (
-    req.query.secret !== process.env.NEXT_EXAMPLE_CMS_DATOCMS_PREVIEW_SECRET ||
-    !req.query.slug
-  ) {
-    return res.status(401).json({ message: 'Invalid token should be:-->'+process.env.NEXT_EXAMPLE_CMS_DATOCMS_API_TOKEN+'<--' })
-  }
+  // if (
+  //   req.query.secret !== process.env.NEXT_EXAMPLE_CMS_DATOCMS_PREVIEW_SECRET ||
+  //   !req.query.slug
+  // ) {
+  //   return res.status(401).json({ message: 'Invalid token' })
+  // }
 
   // Fetch the headless CMS to check if the provided `slug` exists
   const post = await getPreviewPostBySlug(req.query.slug)
