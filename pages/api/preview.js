@@ -7,7 +7,7 @@ export default async (req, res) => {
     req.query.secret !== process.env.NEXT_EXAMPLE_CMS_DATOCMS_PREVIEW_SECRET ||
     !req.query.slug
   ) {
-    return res.status(401).json({ message: 'Invalid token' })
+    return res.status(401).json({ message: 'Invalid token should be:-->'+process.env.NEXT_EXAMPLE_CMS_DATOCMS_PREVIEW_SECRET+'<--' })
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
